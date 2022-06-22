@@ -48,7 +48,7 @@ if(isset($_POST['submitButton']))
             <div class="collapse navbar-collapse" id="navbarDisplayNavigations">
                 <div class="navbar-nav">
                     <a href="index.php" class="nav-link active">Home</a>
-                    <a href="aboutus.php" class="nav-link">About Us</a>
+                    <a href="about-us.php" class="nav-link">About Us</a>
                     <a href="#" class="nav-link">Contact Us</a>
                 </div>
             </div>
