@@ -15,7 +15,7 @@ if(isset($_POST['submitButton']))
     $phone = $_POST['phonenumber'];
     $message = $_POST['message'];
     //2. Submit from data
-    $insertData = mysqli_query($conn, "INSERT INTO contactus(firstname, lastname, email, phonenumber, message) VALUES('$firstName', '$lastName', '$email', '$phone', '$message')");
+    $insertData = mysqli_query($conn, "INSERT INTO registernow(firstname, lastname, email, phonenumber, message) VALUES('$firstName', '$lastName', '$email', '$phone', '$message')");
 
     if($insertData)
     {
@@ -49,7 +49,7 @@ if(isset($_POST['submitButton']))
                 <div class="navbar-nav">
                     <a href="index.php" class="nav-link active">Home</a>
                     <a href="about-us.php" class="nav-link">About Us</a>
-                    <a href="#" class="nav-link">Contact Us</a>
+                    <a href="#" class="nav-link">Register now</a>
                 </div>
             </div>
         </div>
@@ -86,10 +86,10 @@ if(isset($_POST['submitButton']))
                 <button class="btn btn-primary">Learn More</button>
             </div>
         </div>
-        <!-- contact us from here -->
+        <!-- register now from here -->
         <form action="index.php" method="POST">
-        <div class="row pt-5                                                                                                                                                                                                                                                                                                                                                                        ">
-            <h1>Contact Us</h1>
+        <div class="row pt-5">                                                                                                                                                                                                                                                                                                                                                                        ">
+            <h1>Register now</h1>
             <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam neque, excepturi libero sint fuga eius dolores! Natus, dolore. Tenetur commodi recusandae architecto dolore, distinctio deserunt nemo hic quasi voluptates dolores.
             </p>
@@ -124,7 +124,7 @@ if(isset($_POST['submitButton']))
                     <button type="submit" name="submitButton" class="btn btn-primary">Send a message</button>
             </form>
         </div>
-        <!-- End contact us from here -->
+        <!-- End register now from here -->
         <hr>
         <footer>
         &copy; Company 2022
