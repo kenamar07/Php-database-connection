@@ -1,3 +1,31 @@
+<?php
+$server="localhost";
+$username="root";
+$password="";
+$database="zalego";
+
+$conn = mysqli_connect($server, $username, $password, $database);
+
+if(isset($_POST['submitButton']))
+{
+    //1. fetch from data
+    $fullName = $_POST['fullname'];
+    $phone = $_POST['phonenumber'];
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $course = $_POST['course'];
+    //2. Submit from data
+    $insertData = mysqli_query($conn, "INSERT INTO enrollment(fullname, phonenumber, email, gender, course) VALUES('$fullName', '$phone', '$email', '$gender', '$course')");
+
+    if($insertData)
+    {
+        echo "Data Submitted Successfully";
+    }
+    else{
+        echo "Error Occurred";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,28 +38,14 @@
 </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg bg-light fixed-top shadow">
-        <div class="container-fluid">
-            <a href="#" class="navbar-brand">Zalego Academy</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDisplayNavigations" aria-expanded="false">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarDisplayNavigations">
-                <div class="navbar-nav">
-                    <a href="index.php" class="nav-link active">Home</a>
-                    <a href="about-us.php" class="nav-link">About Us</a>
-                    <a href="#" class="nav-link">Register now</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php include('navbar.php') ?>
     
     <main class="p-5 mb-4 bg-light text-center">
         <h1>JULY SOFTWARE ENGINEERING BOOTCAMP</h1>
         <nav>
 			<ul>
 				<li>
-						<span> <i class="fa-solid fa-calendar-days"></i></span>
+						<span class="fa fa-calendar"></span>
 						<span>20th July 2022</span>
 				</li>
 				<li>
@@ -72,10 +86,10 @@
                     
                     <div class="mb-3 col-lg-6">
                         <label for="gender" class="form-label"><b>What's your gender?</b></label>
-                        <select class="form-select form-select-lg mb-3 col-lg-6" arial label="">
+                        <select class="form-select form-select-lg mb-3 col-lg-6" arial label="" name="gender">
                             <option selected>--Select your gender--</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
                         </select>
                     </div>
                 </div>
@@ -85,10 +99,10 @@
                 <div class="row">
                     <div class="mb-3 col-lg-6">
                         <label for="course" class="form-label"><b>What's your preferred course?</b></label>
-                            <select class="form-select form-select-lg mb-3 col-lg-6" arial label="">
+                            <select class="form-select form-select-lg mb-3 col-lg-6" arial label="" name="course">
                                 <option selected>--Select your course--</option>
-                                <option value="1">Python</option>
-                                <option value="2">Android</option>
+                                <option value="python">Python</option>
+                                <option value="android">Android</option>
                             </select>
                     </div>
                 </div> 
@@ -108,6 +122,7 @@
             </form>
                 <br>
                 <br>
+                <hr>
                 <div class="row text-center">
                     <h2 class="fw-lighter"> Subscribe to get information, latest news about Zalego Academy</h2>
                 </div>   
